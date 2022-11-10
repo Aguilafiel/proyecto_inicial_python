@@ -6,20 +6,19 @@ import interfaz
 def leer_palabra_secreta(archivo):
     archivo = 'palabras.csv'
     with open(archivo) as f:
-     lista_archivo = list(f)
-     
-     lista_palabras_secreteas = []
+        lista_archivo = list(f)
+    
+    lista_palabras_secreteas = []
 
-     for x in lista_archivo:
-       lista_palabras_secreteas.append(x)
-     
-     palabra_secreta = random.choice(lista_palabras_secreteas)
-     
-     palabra_secreta = palabra_secreta.strip() 
-     return(palabra_secreta)
+    for x in lista_archivo:
+        lista_palabras_secreteas.append(x)
+    
+    palabra_secreta = random.choice(lista_palabras_secreteas)
+    palabra_secreta = palabra_secreta.strip() 
+    return(palabra_secreta)
 
 def pedir_letra(letras_usadas):
-     while True:
+    while True:
         nueva_letra = str(input('Ingrese UNA nueva letra que no haya utilizado antes: '))
         
         letra = nueva_letra.lower()
@@ -28,12 +27,10 @@ def pedir_letra(letras_usadas):
             break
         else:
             continue
+    letras_usadas += letra
     
-    
-     letras_usadas += letra
-    
-     return(letra)
-        
+    return(letra)
+
 def verificar_letra(letra, palabra_secreta):
     if letra in palabra_secreta:
         return(True)
@@ -42,12 +39,13 @@ def verificar_letra(letra, palabra_secreta):
         return(False)
 
 def validar_palabra(letras_usadas, palabra_secreta):
- contador = 0
- for i in palabra_secreta:
-    if i  in letras_usadas:
-        contador  += 1
-    else:
-        contador = 0
+    contador = 0
+    for i in palabra_secreta:
+        if i  in letras_usadas:
+            contador  += 1
+        else:
+            contador = 0
+    
     
     if contador == len(palabra_secreta):
         return(True)

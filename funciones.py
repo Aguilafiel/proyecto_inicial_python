@@ -40,8 +40,8 @@ def verificar_letra(letra, palabra_secreta):
 
 def validar_palabra(letras_usadas, palabra_secreta):
     contador = 0
-    for i in palabra_secreta:
-        if i  in letras_usadas:
+    for letra in palabra_secreta:
+        if letra  in letras_usadas:
             contador  += 1
         else:
             contador = 0
